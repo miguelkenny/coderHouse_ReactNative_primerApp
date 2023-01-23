@@ -8,6 +8,11 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         marginHorizontal: 20,
         borderRadius: 5,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 6,
+        shadowColor: 'black',
+        shadowOpacity: 0.26,
+        elevation: 3,
     },
     modalTitle: {
         fontSize: 18,
@@ -15,7 +20,6 @@ export const styles = StyleSheet.create({
     },
     modalDetailContainer: {
         paddingVertical: 20,
-        boxShadow: '10px 10px 5px -6px rgba(0,0,0,0.3)',
     },
     modalDetailMessage: {
         fontSize: 16,

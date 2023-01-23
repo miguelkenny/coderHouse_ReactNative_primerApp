@@ -34,14 +34,10 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         alignItems: 'center',
         justifyContent: 'center',
-        borderColor: 'green',
+        borderColor: 'red',
         backgroundColor: 'transparent',
     },
     checkboxChecked: {
-        backgroundColor: 'green',
-    },
-    checkboxContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
+        backgroundColor: 'red',
+    }
 });

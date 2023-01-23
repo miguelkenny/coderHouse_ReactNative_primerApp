@@ -52,8 +52,8 @@ export default App = () => {
 
   const Item = ({ item, name, checked, onCheck }) => (
     <TouchableOpacity style={styles.itemContainer} onPress={() => onHandlerModal(item)}>
-      <Pressable style={styles.checkboxBase} onPress={() => onCheck()}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <Pressable style={[styles.checkboxBase, checked && styles.checkboxChecked]} onPress={() => onCheck()}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ marginRight: 10 }}>{name}</Text>
           {checked && <Text>✔️</Text>}
         </View>

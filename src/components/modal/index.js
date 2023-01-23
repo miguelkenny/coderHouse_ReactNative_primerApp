@@ -7,19 +7,19 @@ export const AddModal = ({ isModalVisible, onHandleCancel, onHandleDelete, selec
     return (
         <Modal visible={isModalVisible} animationType='slide'>
             <View style={styles.modalContainer}>
-                <Text style={styles.modalTitle}>Task Details</Text>
+                <Text style={styles.modalTitle}>Detalle</Text>
                 <View style={styles.modalDetailContainer}>
-                    <Text style={styles.modalDetailMessage}>Are you sure to delete this item?</Text>
+                    <Text style={styles.modalDetailMessage}>¿Deseas eliminar esta taréa?</Text>
                     <Text style={styles.modalSelectedTask} >{selectedTask?.value}</Text>
                 </View>
                 <View style={styles.modalButtonsContainer}>
                     <Button
-                        title='Cancel'
+                        title='Cancelar'
                         onPress={onHandleCancel}
                     />
 
                     <Button
-                        title='Delete'
+                        title='Eliminar'
                         color='red'
                         onPress={onHandleDelete}
                     />
