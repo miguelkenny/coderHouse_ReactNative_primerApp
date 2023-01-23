@@ -22,7 +22,8 @@ export default App = () => {
     setTasks([...tasks,
     {
       id: Math.random().toString(),
-      value: task
+      value: task,
+      checked: false
     }
     ]);
     setTask('');
@@ -43,20 +44,20 @@ export default App = () => {
     setIsModalVisible(!isModalVisible);
   }
 
-  const OnCheckedTask = ({ item }) => {
-    const [checkedTask, setCheckedTask] = useState(false);
-    return (
-      <Pressable
-        style={[styles.checkboxBase, checkedTask && styles.checkboxChecked]}
-        onPress={() => tasks.find(task => task.id === item.id) && setCheckedTask(!checkedTask)}>
-        {checkedTask && <Ionicons name="checkmark" size={24} color="white" />}
-      </Pressable>
-    );
+  function onCheck(index) {
+    const newItems = [...tasks];
+    newItems[index].checked = !newItems[index].checked;
+    setTasks(newItems);
   }
 
-  const renderItem = ({ item }) => (
+  const Item = ({ item, name, checked, onCheck }) => (
     <TouchableOpacity style={styles.itemContainer} onPress={() => onHandlerModal(item)}>
-      <OnCheckedTask item={item} />
+      <Pressable style={styles.checkboxBase} onPress={() => onCheck()}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ marginRight: 10 }}>{name}</Text>
+          {checked && <Text>✔️</Text>}
+        </View>
+      </Pressable>
       <Text style={styles.itemList}>{item.value}</Text>
     </TouchableOpacity>
   )
@@ -78,7 +79,8 @@ export default App = () => {
 
       <FlatList
         data={tasks}
-        renderItem={renderItem}
+        renderItem={({ item, index }) => (
+          <Item item={item} name={item.name} checked={item.checked} onCheck={() => onCheck(index)} />)}
         keyExtractor={keyExtractor}
         style={styles.listContainer}
       />
