@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { AddItem } from './components/add-item';
 import { AddModal } from './components/modal';
 import { Header } from './components/header';
-import { Ionicons } from '@expo/vector-icons';
 
 export default App = () => {
   const [task, setTask] = useState('');
